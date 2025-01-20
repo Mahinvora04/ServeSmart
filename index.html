@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Order System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cafe Order Management</h1>
+
+      <!-- Admin Section -->
+      <div class="admin-section">
+        <h2>Admin Panel</h2>
+        <form id="orderForm">
+          <label for="orderNumber">Order Number:</label>
+          <input
+            type="text"
+            id="orderNumber"
+            placeholder="e.g. #101"
+            required
+          />
+
+          <label for="orderStatus">Status:</label>
+          <select id="orderStatus">
+            <option value="In Progress">In Progress</option>
+            <option value="Prepared">Prepared</option>
+          </select>
+
+          <button type="submit">Add Order</button>
+        </form>
+      </div>
+
+      <!-- Customer Display Section -->
+      <div class="customer-section">
+        <h2>Customer Orders</h2>
+        <div id="orderDisplay" class="order-display">
+          <!-- Orders will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
