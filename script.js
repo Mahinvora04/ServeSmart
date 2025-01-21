@@ -35,9 +35,21 @@ document
     const orderNumber = document.getElementById("orderNumber").value;
     const orderStatus = document.getElementById("orderStatus").value;
 
-    // Get existing orders and add a new one
+    // Get existing orders
     const orders = getOrders();
-    orders.push({ number: orderNumber, status: orderStatus });
+
+    // Find the index of an existing order with the same number
+    const existingOrderIndex = orders.findIndex(
+      (order) => order.number === orderNumber
+    );
+
+    if (existingOrderIndex !== -1) {
+      // Replace the existing order
+      orders[existingOrderIndex] = { number: orderNumber, status: orderStatus };
+    } else {
+      // Add a new order if it doesn't exist
+      orders.push({ number: orderNumber, status: orderStatus });
+    }
 
     // Save updated orders and re-render
     saveOrders(orders);
@@ -45,6 +57,7 @@ document
 
     // Clear form inputs
     document.getElementById("orderNumber").value = "";
+    document.getElementById("orderStatus").value = "";
   });
 
 // Render orders on page load
